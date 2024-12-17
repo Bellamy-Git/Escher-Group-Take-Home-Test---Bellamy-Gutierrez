@@ -19,11 +19,11 @@
    ```
    cd Escher-Group-Take-Home-Test---Bellamy-Gutierrez
 
-3. Build the Docker Image
+3. Build the Docker Image:
    ```
    docker build -t escher-group-app .
 
-4. Run the program using bind mounting.
+4. Run the program using bind mounting:
    ```
    docker run -it -v "C:\people:/app/people" escher-group-app
 
@@ -37,11 +37,11 @@
    ```
    cd Escher-Group-Take-Home-Test---Bellamy-Gutierrez/EscherGroupTakeHomeTest
 
-3. Build the project
+3. Build the project:
    ```
    dotnet build
 
-4. Run the project
+4. Run the project:
    ```
    dotnet run
 
