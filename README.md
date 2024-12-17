@@ -27,6 +27,27 @@
    ```
    docker run -it -v "C:\people:/app/people" escher-group-app
 
+# Non-Docker Instructions
+## Build and Run
+1. Clone the repository:
+   ```
+   git clone https://github.com/Bellamy-Git/Escher-Group-Take-Home-Test---Bellamy-Gutierrez.git
+
+2. Navigate to the directory:
+   ```
+   cd Escher-Group-Take-Home-Test---Bellamy-Gutierrez/EscherGroupTakeHomeTest
+
+3. Build the project
+   ```
+   dotnet build
+
+4. Run the project
+   ```
+   dotnet run
+
+
+
+
 
 ## File Structure
 ```bash
