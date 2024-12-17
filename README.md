@@ -22,11 +22,6 @@
    ```
    docker run -it bellamy-escher-app
 
-## Building
-Build the solution
-
-## Running
-Run the solution
 
 ## Docker support coming soon
 
