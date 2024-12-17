@@ -44,11 +44,7 @@
 4. Run the project:
    ```
    dotnet run
-
-
-
-
-
+   
 ## File Structure
 ```bash
 Escher-Group-Take-Home-Test---Bellamy-Gutierrez/
