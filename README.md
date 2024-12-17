@@ -44,6 +44,15 @@
 4. Run the project:
    ```
    dotnet run
+
+## Tests
+1. To run tests, navigate to BellamyEscherUnitTests:
+   ```
+   cd BellamyEscherUnitTests
+
+2. Run the tests:
+   ```
+   dotnet test
    
 ## File Structure
 ```bash
