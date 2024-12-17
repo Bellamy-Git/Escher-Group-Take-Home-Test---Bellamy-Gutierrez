@@ -18,7 +18,11 @@
    ```
    cd "Escher Group Take Home Test - Bellamy Gutierrez"
 
-3. Run the program
+3. Build the Docker Image
+   ```
+   docker build -t bellamy-escher-app .
+
+4. Run the program
    ```
    docker run -it bellamy-escher-app
 
