@@ -18,3 +18,19 @@ Build the solution
 Run the solution
 
 ## Docker support coming soon
+
+## File Structure
+```bash
+Escher-Group-Take-Home-Test---Bellamy-Gutierrez/
+├── Escher Group Take Home Test - Bellamy Gutierrez/
+│   ├── Program.cs
+│   ├── BusinessRules.cs
+│   ├── Person.cs
+│   ├── PersonService.cs
+│   ├── AppSettings.cs
+│   └── AppSettings.json
+│
+└── Bellamy Escher Unit Tests/
+    ├── BusinessRulesTests.cs
+    └── Bellamy Escher Unit Tests.csproj
+```
