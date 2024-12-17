@@ -1,15 +1,26 @@
 # Escher Group Take Home Coding Test
 
-## Main Project Requirements
-* .NET SDK 6.0 (LTS)
+## Prerequisites
+* Docker
+* .NET 6 SDK
 
 ## Unit Tests Project Requirements
 * NUnit: 3.13.3
 * NUnit3TestAdapter: 4.5.0
 * Microsoft.NET.Test.Sdk: 4.5.0
 
-## Installation
-Clone the repository.
+## Build and Run
+1. Clone the repository:
+   ```
+   git clone https://github.com/Bellamy-Git/Escher-Group-Take-Home-Test---Bellamy-Gutierrez.git
+
+2. Navigate to the directory:
+   ```
+   cd "Escher Group Take Home Test - Bellamy Gutierrez"
+
+3. Run the program
+   ```
+   docker run -it bellamy-escher-app
 
 ## Building
 Build the solution
