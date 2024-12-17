@@ -10,12 +10,14 @@ namespace BellamyGutierrezEscher
 
         static void Main(string[] args)
         {
-            // Load configuration
+            //Load configuration settings
             var config = LoadConfiguration();
 
+            //defines the default file paths from configuration ^
             var peopleFile = config.FilePaths.PeopleFile;
             var spouseDirectory = config.FilePaths.SpouseDirectory;
 
+            //Overrides file paths if running inside Docker
             if (IsRunningInDocker())
             {
                 peopleFile = "/app/people/mainfile.txt";
@@ -24,11 +26,12 @@ namespace BellamyGutierrezEscher
 
             else
             {
-                //Overrides for local execution to save in C:\people
+                //Overrides for local execution (non-docker) to save in C:\people
                 peopleFile = @"C:\people\mainfile.txt";
                 spouseDirectory = @"C:\people\spouses";
             }
 
+            //initializes PersonService with filepaths
             var personService = new PersonService(peopleFile, spouseDirectory);
 
             Console.WriteLine("Enter First Name:");
@@ -39,7 +42,8 @@ namespace BellamyGutierrezEscher
 
             Console.WriteLine("Enter Date of Birth (MM-DD-YYYY):");
             DateTime dateOfBirth = DateTime.Parse(Console.ReadLine());
-
+            
+            //calculates age and checks business rules
             int age = BusinessRules.CalculateAge(dateOfBirth);
             bool parentalAuthorization = false;
 
@@ -50,6 +54,7 @@ namespace BellamyGutierrezEscher
             }
             else if (age < 18)
             {
+                //asks parental authorization for minors
                 Console.WriteLine("Parent's Authorization? (yes/no):");
                 parentalAuthorization = Console.ReadLine().ToLower() == "yes";
 
@@ -60,6 +65,7 @@ namespace BellamyGutierrezEscher
                 }
             }
 
+            //spouse info gathering
             Console.WriteLine("Enter Marital Status (Single/Married):");
             string maritalStatus = Console.ReadLine();
 
@@ -84,6 +90,7 @@ namespace BellamyGutierrezEscher
                 };
             }
 
+            //creates person object with the collected details ^
             var person = new Person
             {
                 FirstName = firstName,
@@ -92,17 +99,20 @@ namespace BellamyGutierrezEscher
                 MaritalStatus = maritalStatus
             };
 
+            //saving of the person and spouse to file
             personService.SavePerson(person, spouse, parentalAuthorization);
 
             Console.WriteLine("Person details saved successfully!");
         }
 
+        //loads file paths and configuration from AppSettings.json - had to edit the json permissions (the "copy if newer")
         private static AppSettings LoadConfiguration()
         {
             string json = File.ReadAllText("AppSettings.json");
             return JsonSerializer.Deserialize<AppSettings>(json);
         }
 
+        //checks if application is running in a Docker container
         private static bool IsRunningInDocker()
         {
             //Docker sets this environment variable when running

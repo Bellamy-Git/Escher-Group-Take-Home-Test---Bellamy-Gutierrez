@@ -4,6 +4,7 @@ namespace BellamyGutierrezEscher
 {
     public static class BusinessRules
     {
+        //checks if registration is allowed - based on age and parental authorization
         public static bool IsRegistrationAllowed(Person person, bool parentalAuthorization)
         {
             int age = CalculateAge(person.DateOfBirth);
@@ -17,6 +18,7 @@ namespace BellamyGutierrezEscher
             return true;
         }
 
+        //calculates age base on DOB
         public static int CalculateAge(DateTime dateOfBirth)
         {
             var today = DateTime.Today;

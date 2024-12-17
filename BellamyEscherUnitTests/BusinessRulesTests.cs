@@ -10,29 +10,30 @@ public class BusinessRulesTests
     [TestCase("2024-01-01", 2024, 0)]  //Age 0
     public void CalculateAge_ValidDates_CorrectAge(string dateOfBirth, int currentYear, int expectedAge)
     {
-        // Arrange
+        //parses the input string DOB into a Datetime object
         DateTime dob = DateTime.Parse(dateOfBirth);
 
-        // Act
+        //calls CalculatedAge method and stores that result in int age
         int age = BusinessRules.CalculateAge(dob);
 
-        // Assert
+        //verifies that the calculated age matches the expected age
         Assert.AreEqual(expectedAge, age);
     }
 
-    [TestCase("2010-01-01", true, false)] //Minor, no authorization
-    [TestCase("2010-01-01", false, false)] //Minor, no authorization
-    [TestCase("2007-01-01", true, true)] //Minor with authorization
-    [TestCase("2000-01-01", false, true)] //Adult
+    //test cases
+    [TestCase("2010-01-01", true, false)] //Minor, no authorization so result: false
+    [TestCase("2010-01-01", false, false)] //Minor, no authorization so result: false
+    [TestCase("2007-01-01", true, true)] //Minor with authorization so result: true
+    [TestCase("2000-01-01", false, true)] //Adult, so result: true
     public void IsRegistrationAllowed_ValidCases_CorrectResult(string dateOfBirth, bool parentalAuthorization, bool expectedResult)
     {
-        // Arrange
+        //creates a person object with the given DOB
         var person = new Person { DateOfBirth = DateTime.Parse(dateOfBirth) };
 
-        // Act
+        // Act - calls the method under test
         bool result = BusinessRules.IsRegistrationAllowed(person, parentalAuthorization);
 
-        // Assert
+        // Asserttion - verifies that the result matches the expected output
         Assert.AreEqual(expectedResult, result);
     }
 }
