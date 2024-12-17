@@ -1,0 +1,17 @@
+# Ignore build outputs
+bin/
+obj/
+.vs/
+
+# User-specific files
+*.user
+*.suo
+
+# Ignore specific project folders
+EscherGroupTakeHomeTest/bin/
+EscherGroupTakeHomeTest/obj/
+BellamyEscherUnitTests/bin/
+BellamyEscherUnitTests/obj/
+
+# Ignore local configurations
+appsettings.Development.json
